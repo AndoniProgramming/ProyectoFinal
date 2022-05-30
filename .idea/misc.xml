@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.12129629629629629" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_actu_datos_inmobiliarias.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_actu_datos_propiedad.xml" value="0.25" />
