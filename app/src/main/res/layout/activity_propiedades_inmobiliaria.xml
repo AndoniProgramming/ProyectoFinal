@@ -6,22 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".propiedadesInmobiliaria">
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBaridnew"
-        android:layout_gravity="center"
-        />
+
     <TextView
+        android:id="@+id/txtSinProppp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/txtSinProppp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:text="No tienes propiedades Registradas!"
-        android:textSize="20dp"
         android:textColor="@color/purple_700"
-        />
+        android:textSize="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewid"

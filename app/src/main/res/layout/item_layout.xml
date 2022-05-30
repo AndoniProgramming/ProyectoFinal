@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,42 +18,6 @@
             android:scaleType="fitXY"
            />
         <TextView
-            android:id="@+id/CardPrecioViewid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Precio"
-            android:textAlignment="center"
-            android:textSize="19sp"
-            />
-        <TextView
-            android:id="@+id/CardBañosViewid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Baños"
-            android:textAlignment="center"
-            android:textSize="19sp"
-            />
-        <TextView
-            android:id="@+id/CardHabitacionViewid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Habitaciones"
-            android:textAlignment="center"
-            android:textSize="19sp"
-            />
-        <TextView
-            android:id="@+id/CardCPViewid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="CodigoPostal"
-            android:textAlignment="center"
-            android:textSize="19sp"
-            />
-        <TextView
             android:id="@+id/CardDescripcionViewid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,53 +25,213 @@
             android:text="Descripcion"
             android:textAlignment="center"
             android:textSize="19sp"
+            android:gravity="center"
             />
-        <TextView
-            android:id="@+id/CardTamañoViewid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Tamaño"
-            android:textAlignment="center"
-            android:textSize="19sp"
-            />
-        <TextView
-            android:id="@+id/CardCategoriaViewid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Categoria"
-            android:textAlignment="center"
-            android:textSize="19sp"
-            />
-        <TextView
-        android:id="@+id/CardTipoViewid"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Tipo"
-        android:textAlignment="center"
-        android:textSize="19sp"
-        />
-
+        android:orientation="horizontal"
+        android:weightSum="4"
+        >
         <TextView
             android:id="@+id/CardCalleViewid"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Calle"
             android:textAlignment="center"
             android:textSize="19sp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:id="@+id/ss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="-"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:layout_weight="0.25"
             />
         <TextView
             android:id="@+id/CardCiudadViewid"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Ciudad"
+            android:text="Ciu"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:layout_weight="1"
+
+            />
+        <TextView
+            android:id="@+id/CardCPViewid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="cp"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:layout_weight="0.75"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        >
+        <TextView
+            android:id="@+id/Hab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="17dp"
+            android:text="Habitaciones:"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/CardHabitacionViewid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="0"
             android:textAlignment="center"
             android:textSize="19sp"
             />
+
+        <TextView
+            android:id="@+id/Baños"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text=" Baños: "
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:layout_marginLeft="50dp"/>
+
+        <TextView
+            android:id="@+id/CardBañosViewid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="19sp" />
+
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="3"
+
+    >
+
+    <TextView
+        android:id="@+id/CardTipoViewid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="Tipo"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:id="@+id/en"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text=" en"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        />
+
+    <TextView
+        android:id="@+id/CardCategoriaViewid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Categoria"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        android:layout_weight="1"
+        />
+
+
+    <TextView
+        android:id="@+id/de"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text=" de  "
+        android:textAlignment="center"
+        android:textSize="19sp"
+        />
+
+    <TextView
+        android:id="@+id/CardTamañoViewid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Tamaño"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        />
+    <TextView
+        android:id="@+id/tam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="  m2."
+        android:textAlignment="center"
+        android:textSize="19sp"
+        />
+
+
+
+
+</LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/CardPrecioViewid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="19sp"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/cash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text=" euros."
+                android:textAlignment="center"
+                android:textSize="19sp"
+                android:gravity="center"
+
+                />
+
+        </LinearLayout>
+
 
 
 

@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +34,6 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
     private List<ModeloPropiedad> propiedadList;
     DatabaseReference databaseReference;
     FirebaseAuth myAuth;
-    private ProgressBar progressBar;
     private FirebaseStorage firebaseStorage;
     private Intent editIntent;
     private TextView txtSinFavoritos;
@@ -45,7 +43,6 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_propiedades_inmobiliaria);
-        progressBar=findViewById(R.id.progressBaridnew);
         recyclerView=(RecyclerView) findViewById(R.id.RecyclerViewid);
         propiedadList=new ArrayList<>();
         myAuth = FirebaseAuth.getInstance();
@@ -59,7 +56,6 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         String idD = myAuth.getCurrentUser().getUid();
-        progressBar.setVisibility(View.VISIBLE);
 
         databaseReference.child("Inmobiliarias").child(idD).child("Propiedades").addValueEventListener(new ValueEventListener() {
             @Override
@@ -81,16 +77,14 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerView.setAdapter(myAdapter);
-                progressBar.setVisibility(View.INVISIBLE);
 
                 //Aqui implementariamos el onEdit tambien asi como el onBorrar
                 myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
                         //Aqui puedo meter Nombre propiedad
-                        String text=propiedadList.get(position).getCategoria();
-                        String desc=propiedadList.get(position).getTipo();
-                        Toast.makeText(getApplicationContext(), desc+" en "+text , Toast.LENGTH_SHORT).show();
+                        String desc=propiedadList.get(position).getDescripcion();
+                        Toast.makeText(getApplicationContext(), desc , Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

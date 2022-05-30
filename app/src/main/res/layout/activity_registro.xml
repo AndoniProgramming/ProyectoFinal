@@ -7,19 +7,6 @@
     tools:context=".Registro">
 
     <TextView
-        android:id="@+id/TxtInmobiliariaTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="Registro Inmobiliaria"
-        android:textSize="24dp"
-        android:textColor="@color/purple_700"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"/>
-
-    <TextView
         android:id="@+id/txtUsuarioTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
