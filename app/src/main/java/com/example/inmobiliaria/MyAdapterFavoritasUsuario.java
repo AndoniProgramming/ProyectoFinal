@@ -1,0 +1,144 @@
+package com.example.inmobiliaria;
+
+import android.content.Context;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
+public class MyAdapterFavoritasUsuario extends RecyclerView.Adapter<MyAdapterFavoritasUsuario.MyViewHolder>   {
+
+    private Context context;
+    private List<ModeloPropiedad> propiedadList;
+    private MyAdapterFavoritasUsuario.OnItemClickListener listener;
+
+    public MyAdapterFavoritasUsuario(Context context, List<ModeloPropiedad>propiedadList){
+        this.context=context;
+        this.propiedadList=propiedadList;
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
+        View view= layoutInflater.inflate(R.layout.item_layout,parent,false);
+        return new MyViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
+        ModeloPropiedad modelo=propiedadList.get(position);
+        holder.txtBaños.setText(String.valueOf(modelo.getBaños()));
+        holder.txtCodigo.setText(String.valueOf(modelo.getCodigoPostal()));
+        holder.txtHabitaciones.setText(String.valueOf(modelo.getHabitaciones()));
+        holder.txtTamaño.setText(String.valueOf(modelo.getTamaño()));
+        Picasso.get().load(modelo.getFoto())
+                .placeholder(R.mipmap.ic_launcher)
+                .fit().
+                centerCrop()
+                .into(holder.imageView);
+        holder.txtCalle.setText(modelo.getCalle());
+        holder.txtCategoria.setText(modelo.getCategoria());
+        holder.txtCiudad.setText(modelo.getCiudad());
+        holder.txtDescripcion.setText(modelo.getDescripcion());
+        holder.txtTipo.setText(modelo.getTipo());
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return propiedadList.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
+        TextView txtBaños;
+        TextView txtCalle;
+        TextView txtCategoria;
+        TextView txtCiudad;
+        TextView txtCodigo;
+        TextView txtDescripcion;
+        ImageView imageView;
+        TextView txtHabitaciones;
+        TextView txtTamaño;
+        TextView txtTipo;
+
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            txtBaños= itemView.findViewById(R.id.CardBañosViewid);
+            txtCalle=itemView.findViewById(R.id.CardCalleViewid);
+            txtCategoria=itemView.findViewById(R.id.CardCategoriaViewid);
+            txtCiudad=itemView.findViewById(R.id.CardCiudadViewid);
+            txtCodigo=itemView.findViewById(R.id.CardCPViewid);
+            txtDescripcion=itemView.findViewById(R.id.CardDescripcionViewid);
+            imageView=itemView.findViewById(R.id.CardImageViewid);
+            txtHabitaciones=itemView.findViewById(R.id.CardHabitacionViewid);
+            txtTamaño=itemView.findViewById(R.id.CardTamañoViewid);
+            txtTipo=itemView.findViewById(R.id.CardTipoViewid);
+            itemView.setOnClickListener(this);
+            itemView.setOnCreateContextMenuListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(listener!=null){
+                int position=getAdapterPosition();
+                if(position!=RecyclerView.NO_POSITION){
+                    listener.onItemClick(position);
+                }
+            }
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            menu.setHeaderTitle("Escoge Opcion");
+            MenuItem Borrrar=menu.add(Menu.NONE,1,1,"Eliminar Favorito");
+            MenuItem ContactoInmo=menu.add(Menu.NONE,2,2,"Contactar Inmobiliaria");
+            Borrrar.setOnMenuItemClickListener(this);
+            ContactoInmo.setOnMenuItemClickListener(this);
+        }
+
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            if(listener!=null){
+                int position=getAdapterPosition();
+                if(position!=RecyclerView.NO_POSITION){
+                    switch (item.getItemId()){
+                        case 1:
+                            listener.onBorrar(position);
+                            return true;
+                        case 2:
+                            listener.onVerInmobiliaria(position);
+                            return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+        void onVerInmobiliaria(int position);
+        void onBorrar(int position);
+
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.listener=listener;
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "6662278568",
+    "project_id": "inmobiliaria-aac97",
+    "storage_bucket": "inmobiliaria-aac97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6662278568:android:bb1d8734d817286272219d",
+        "android_client_info": {
+          "package_name": "com.example.inmobiliaria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6662278568-7u906qm7dah59a67va3vq1c96be5fidi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3coUc_Yy1C6ncIkaXCVVtfZ0jeF9KNQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6662278568-7u906qm7dah59a67va3vq1c96be5fidi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

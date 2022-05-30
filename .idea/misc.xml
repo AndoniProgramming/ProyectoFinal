@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_actu_datos_inmobiliarias.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_actu_datos_propiedad.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_actualziar_datos_usuario.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_alquilar.xml" value="0.171875" />
+        <entry key="app/src/main/res/layout/activity_comprar.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/activity_contacto_inmobiliaria.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_inmuebles_filtros.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_opciones.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_opciones_inmobiliaria.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_perfil_inmobiliaria.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_perfil_usuario.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_propiedades_favoritas_usuarios.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_propiedades_inmobiliaria.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/activity_propiedades_usuarios.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/activity_registro.xml" value="0.31351351351351353" />
+        <entry key="app/src/main/res/layout/activity_registro_inmobiliarias.xml" value="0.3310034887787017" />
+        <entry key="app/src/main/res/layout/activity_registro_propiedades.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_restablecer_contra.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.1703125" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.25" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

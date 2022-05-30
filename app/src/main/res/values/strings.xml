@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Inmobiliaria</string>
+    <string name="registro_inmobiliaria">Registro Inmobiliaria</string>
+    <string name="registrar_inmobiliaria">Registrar Inmobiliaria</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="Perfil" >Perfil</string>
+    <string name="Opciones" >Opciones</string>
+    <string name="reg">Registro Inmobiliaria</string>
+    <string name="cli">Eres Cliente?</string>
+    <string name="inmo">Eres Inmobiliaria?</string>
+    <string name="regcli">Registro Cliente</string>
+    <string-array name="Habitaciones">
+        <item>0-1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4+</item>
+    </string-array>
+
+    <string-array name="Precios">
+        <item>0-100.000</item>
+        <item>100.00-200.000</item>
+        <item>200.000-300.000</item>
+        <item>300.000+</item>
+    </string-array>
+
+    <string-array name="Tipo">
+        <item>Apartamento</item>
+        <item>Casa</item>
+        <item>Studio</item>
+    </string-array>
+
+    <string-array name="Categoria">
+        <item>Alquiler</item>
+        <item>Venta</item>
+    </string-array>
+</resources>
