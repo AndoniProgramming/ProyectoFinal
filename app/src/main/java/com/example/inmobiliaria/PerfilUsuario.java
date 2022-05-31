@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class PerfilUsuario extends AppCompatActivity {
     private Intent intent;
     private Button btnBorrar;
     FirebaseUser user;
+    private ImageView imgCerrarr;
 
 
     @Override
@@ -53,12 +55,23 @@ public class PerfilUsuario extends AppCompatActivity {
         myAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         user= FirebaseAuth.getInstance().getCurrentUser();
-        btnBorrar=findViewById(R.id.btnBorrar);
+        btnBorrar=findViewById(R.id.btnBorrar7);
+        imgCerrarr=findViewById(R.id.imgCerrarSesionn);
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        imgCerrarr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(inss);
+            }
+        });
+
         String idD = myAuth.getCurrentUser().getUid();
         databaseReference.child("Usuarios").child(idD).child("PropiedadesFavoritas").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -103,11 +116,13 @@ public class PerfilUsuario extends AppCompatActivity {
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String gg = myAuth.getCurrentUser().getUid();
+
                 user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            databaseReference.child("Usuarios").child(idD).removeValue().addOnSuccessListener(
+                            databaseReference.child("Usuarios").child(gg).removeValue().addOnSuccessListener(
                                     new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
@@ -125,36 +140,7 @@ public class PerfilUsuario extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
 
-            case R.id.Opciones:{
-                Intent inss=new Intent(getApplicationContext(),Opciones.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.perfil:{
-                Toast.makeText(getApplicationContext(), "Ya estás en Perfil", Toast.LENGTH_SHORT).show();
-            }
-            return true;
-
-            case R.id.logout: {
-                FirebaseAuth.getInstance().signOut();
-                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(inss);
-            }
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }

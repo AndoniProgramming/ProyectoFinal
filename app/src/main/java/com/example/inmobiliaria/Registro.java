@@ -99,8 +99,12 @@ public class Registro extends AppCompatActivity {
                     cellphone = precio2;
                         //Si direccioón es visible, se registra una inmobiliaria!
                         if (direccion.getVisibility()==View.VISIBLE){
-                        ModeloInmobiliarias modIn=new ModeloInmobiliarias(name,dir,email,cellphone);
-                            RegistroInmobiliaria(modIn,password);
+                            if(dir.isEmpty()){
+                                Toast.makeText(getApplicationContext(), "Acuerdate de Introducir la Dirección", Toast.LENGTH_SHORT).show();
+                            } else{
+                                ModeloInmobiliarias modIn=new ModeloInmobiliarias(name,dir,email,cellphone);
+                                RegistroInmobiliaria(modIn,password);
+                            }
                         }else{
                             ModeloClientes cli = new ModeloClientes(name, email, cellphone);
                             RegistroFirebase(cli,password);

@@ -52,9 +52,6 @@
             android:name=".RegistroPropiedades"
             android:exported="true" />
         <activity
-            android:name=".RegistroInmobiliarias"
-            android:exported="true" />
-        <activity
             android:name=".Opciones"
             android:exported="true" />
         <activity

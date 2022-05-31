@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class PerfilInmobiliaria extends AppCompatActivity {
     private Button btneliminar;
     private List<String> listaPropiedadesInmobiliaria;
     private FirebaseUser user;
+    private ImageView imgCerrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +59,9 @@ public class PerfilInmobiliaria extends AppCompatActivity {
         myAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        btneliminar = findViewById(R.id.eliminar);
+        btneliminar = findViewById(R.id.eliminarr);
         listaPropiedadesInmobiliaria = new ArrayList<>();
+        imgCerrar=findViewById(R.id.imgCerrarSesion);
 
     }
 
@@ -67,6 +70,14 @@ public class PerfilInmobiliaria extends AppCompatActivity {
         super.onStart();
         String idD = myAuth.getCurrentUser().getUid();
         ArrayList<String> Lista = new ArrayList<String>();
+        imgCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(inss);
+            }
+        });
 
         //En teoria lista tiene el ID de propiedades a borrar en usuarios
 
@@ -125,6 +136,8 @@ public class PerfilInmobiliaria extends AppCompatActivity {
         btneliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String gg = myAuth.getCurrentUser().getUid();
+
                 user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -147,7 +160,8 @@ public class PerfilInmobiliaria extends AppCompatActivity {
                                 }
                                 }
                             );
-                            databaseReference.child("Inmobiliarias").child(idD).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+
+                            databaseReference.child("Inmobiliarias").child(gg).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess (Void unused){
                                         Toast.makeText(getApplicationContext(), "Cuenta Eliminada", Toast.LENGTH_SHORT).show();
@@ -163,39 +177,5 @@ public class PerfilInmobiliaria extends AppCompatActivity {
                 }
             });
         }
-
-    @Override
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.Opciones:{
-                Intent inss=new Intent(getApplicationContext(),OpcionesInmobiliaria.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.perfil:{
-                Toast.makeText(getApplicationContext(), "Ya estás en el Perfil!", Toast.LENGTH_SHORT).show();
-
-            }
-            return true;
-
-            case R.id.logout: {
-                FirebaseAuth.getInstance().signOut();
-                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(inss);
-            }
-            return true;
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }

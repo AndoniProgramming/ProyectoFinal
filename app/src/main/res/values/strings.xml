@@ -9,6 +9,12 @@
     <string name="cli">Eres Cliente?</string>
     <string name="inmo">Eres Inmobiliaria?</string>
     <string name="regcli">Registro Cliente</string>
+    <string name="introduce_el_email_asociado_a_la_cuenta_y_te_enviaremos_un_correo_con_las_instrucciones_para_restablecer_la_contrase_a">Introduce el Email asociado a la cuenta y te enviaremos un correo con las instrucciones para restablecer la contraseña.</string>
+    <string name="restablecer_contrase_a">Restablecer Contraseña</string>
+    <string name="email">Email</string>
+    <string name="enviar_instrucciones">Enviar Instrucciones</string>
+    <string name="haz_click_en_la_gota_para_volver">Haz Click En La Gota Para Iniciar Sesión!</string>
+    <string name="perfil_inmobiliaria">Perfil Inmobiliaria</string>
     <string-array name="Habitaciones">
         <item>0-1</item>
         <item>2</item>

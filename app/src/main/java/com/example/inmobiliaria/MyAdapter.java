@@ -55,7 +55,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.txtCiudad.setText(modelo.getCiudad());
         holder.txtTipo.setText(modelo.getTipo());
         holder.txtPrecio.setText(String.valueOf(modelo.getPrecio()));
-
         holder.txtCategoria.setText(modelo.getCategoria());
         holder.txtDescripcion.setText(modelo.getDescripcion());
 

@@ -70,6 +70,9 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
                         propiedadList.add(modelo);
                     }
                 } else{
+
+
+
                         txtSinFavoritos.setVisibility(View.VISIBLE);
 
                     }
