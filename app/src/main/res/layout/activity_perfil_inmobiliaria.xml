@@ -20,7 +20,7 @@
         android:id="@+id/btnMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="228dp"
         android:text="Menu"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,11 +47,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="188dp"
         android:text="Deseas Actualizar tus Datos? Haz Click Aquí"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMenu" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMenu"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView10"
@@ -165,7 +166,7 @@
         android:id="@+id/eliminarr"
         android:layout_width="208dp"
         android:layout_height="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@color/white"
         android:text="Eliminar Cuenta"
         android:textColor="@color/black"

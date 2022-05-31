@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,8 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
     DatabaseReference databaseReference;
     FirebaseAuth myAuth;
     private List<String> userIdLista;
+    private ImageView imgPerfil;
+
 
 
 
@@ -61,6 +64,7 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
         myAuth = FirebaseAuth.getInstance();
         databaseReference= FirebaseDatabase.getInstance().getReference();
         userIdLista=new ArrayList<>();
+        imgPerfil=findViewById(R.id.imgCerrarSesion);
 
     }
 
@@ -69,6 +73,18 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
         super.onStart();
         // Referencia de Usuarios que tienen esta propiedad
         //Tipo
+
+        imgPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(inss);
+            }
+        });
+
+
+
         ArrayAdapter<CharSequence> adapterCAT = ArrayAdapter.createFromResource(this,R.array.Categoria, android.R.layout.simple_list_item_1);
         lvTipoPro.setAdapter(adapterCAT);
         lvTipoPro.setOnItemClickListener(new AdapterView.OnItemClickListener() {

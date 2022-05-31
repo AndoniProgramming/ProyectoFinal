@@ -15,6 +15,7 @@
     <string name="enviar_instrucciones">Enviar Instrucciones</string>
     <string name="haz_click_en_la_gota_para_volver">Haz Click En La Gota Para Iniciar Sesión!</string>
     <string name="perfil_inmobiliaria">Perfil Inmobiliaria</string>
+    <string name="no_tienes_ninguna">No tienes Ninguna!</string>
     <string-array name="Habitaciones">
         <item>0-1</item>
         <item>2</item>

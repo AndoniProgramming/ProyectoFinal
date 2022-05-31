@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,8 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
     private FirebaseStorage firebaseStorage;
     private Intent editIntent;
     private TextView txtSinFavoritos;
+    private ImageView imgPerfil;
+
 
 
     @Override
@@ -50,11 +53,22 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
         databaseReference= FirebaseDatabase.getInstance().getReference();
         txtSinFavoritos=findViewById(R.id.txtSinProppp);
         txtSinFavoritos.setVisibility(View.INVISIBLE);
+        imgPerfil=findViewById(R.id.imgPerfilll);
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        imgPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
+                startActivity(inss);
+            }
+        });
+
         String idD = myAuth.getCurrentUser().getUid();
 
         databaseReference.child("Inmobiliarias").child(idD).child("Propiedades").addValueEventListener(new ValueEventListener() {
@@ -70,8 +84,6 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
                         propiedadList.add(modelo);
                     }
                 } else{
-
-
 
                         txtSinFavoritos.setVisibility(View.VISIBLE);
 

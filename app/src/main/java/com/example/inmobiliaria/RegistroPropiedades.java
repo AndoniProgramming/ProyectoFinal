@@ -68,6 +68,8 @@ public class RegistroPropiedades extends AppCompatActivity {
     private String tipo="";
     private String categoria="";
     private String auxiliarUrl="";
+    private ImageView imgPerfil;
+
 
 
     @Override
@@ -89,12 +91,19 @@ public class RegistroPropiedades extends AppCompatActivity {
         btnRegistroPropiedades=findViewById(R.id.btnRegistrar);
         escogeFotos=findViewById(R.id.btnCargarFotos);
         mImageView=findViewById(R.id.image_view);
+        imgPerfil=findViewById(R.id.imgPerf);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
+        imgPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
+                startActivity(inss);
+            }
+        });
 
         ArrayAdapter<CharSequence> adapterTipo = ArrayAdapter.createFromResource(this,R.array.Tipo, android.R.layout.simple_list_item_1);
         Tipo.setAdapter(adapterTipo);

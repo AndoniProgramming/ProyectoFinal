@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +33,8 @@ public class ActuDatosInmobiliarias extends AppCompatActivity {
     private String aux="";
     private String direccion="";
     private int cellphone=0;
+    private ImageView imgPeril;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +46,22 @@ public class ActuDatosInmobiliarias extends AppCompatActivity {
         edtDireccion=findViewById(R.id.edtDireccion);
         myAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        imgPeril=findViewById(R.id.imgPerfi12);
     }
 
 
         @Override
         protected void onStart() {
             super.onStart();
+            imgPeril.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
+                    startActivity(inss);
+                }
+            });
+
             String idD = myAuth.getCurrentUser().getUid();
             btnOpciones.setOnClickListener(new View.OnClickListener() {
                 @Override

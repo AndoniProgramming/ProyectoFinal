@@ -10,15 +10,13 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:text="Registro Inmueble"
-        android:textSize="24dp"
         android:textColor="@color/purple_700"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <ImageView
         android:id="@+id/image_view"
@@ -88,25 +86,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edPrecio" />
 
+
+    <ImageView
+        android:id="@+id/imgPerf"
+        android:layout_width="88dp"
+        android:layout_height="77dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_person"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
+
     <EditText
         android:id="@+id/Description"
         android:layout_width="158dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="56dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
         android:ems="6"
         android:hint="Descripcion"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintHorizontal_bias="0.861"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edPrecio" />
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="153dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="148dp"
+        android:layout_width="195dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="156dp"
+        android:background="@drawable/botoncolor"
         android:text="Registrar!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,9 +178,10 @@
 
     <Button
         android:id="@+id/btnCargarFotos"
-        android:layout_width="160dp"
-        android:layout_height="48dp"
+        android:layout_width="151dp"
+        android:layout_height="37dp"
         android:layout_marginTop="36dp"
+        android:background="@drawable/botoncolor"
         android:text="Escoge Foto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.904"
