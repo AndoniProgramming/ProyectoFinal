@@ -6,6 +6,8 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.12129629629629629" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/opciones_fondo.xml" value="0.12129629629629629" />
         <entry key="app/src/main/res/layout/activity_actu_datos_inmobiliarias.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_actu_datos_propiedad.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_actualziar_datos_usuario.xml" value="0.215625" />
@@ -15,7 +17,7 @@
         <entry key="app/src/main/res/layout/activity_inmuebles_filtros.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_opciones.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_opciones_inmobiliaria.xml" value="0.215625" />
+        <entry key="app/src/main/res/layout/activity_opciones_inmobiliaria.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_perfil_inmobiliaria.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_perfil_usuario.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_propiedades_favoritas_usuarios.xml" value="0.25" />

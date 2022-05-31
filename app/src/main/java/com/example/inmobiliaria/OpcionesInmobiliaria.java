@@ -2,6 +2,7 @@ package com.example.inmobiliaria;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,87 +17,63 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class OpcionesInmobiliaria extends AppCompatActivity {
 
-    private Button btnRegistrarPropiedades;
-    private Intent vamos;
-    private Button btnVerProp;
-    private Button btnVerInmobiliaria;
+    private CardView cardRegistrar;
+    private CardView cardVerPropiedades;
+    private CardView cardPeril;
+    private CardView cerrarSesion;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opciones_inmobiliaria);
-        btnRegistrarPropiedades=findViewById(R.id.btnRegistroPropiedades);
-        btnVerProp=findViewById(R.id.btnVerPropiedades);
-        btnVerInmobiliaria=findViewById(R.id.btnPerfilInmobiliaria);
-    }
-
-        @Override
-        protected void onStart() {
-            super.onStart();
-            btnVerProp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    vamos=new Intent(getApplicationContext(),propiedadesInmobiliaria.class);
-                    startActivity(vamos);
-                    finish();
-
-                }
-            });
-
-            btnVerInmobiliaria.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    vamos=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
-                    startActivity(vamos);
-                    finish();
-                }
-            });
-
-
-            btnRegistrarPropiedades.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    vamos=new Intent(getApplicationContext(),RegistroPropiedades.class);
-                    startActivity(vamos);
-                    finish();
-
-                }
-            });
-        }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.Opciones:{
-                Toast.makeText(getApplicationContext(), "Ya estás en Opciones", Toast.LENGTH_SHORT).show();
+        cerrarSesion = findViewById(R.id.cardCerrarSesion);
+        cardPeril = findViewById(R.id.cardPerfil);
+        cardVerPropiedades = findViewById(R.id.cardMisPropiedades);
+        cardRegistrar = findViewById(R.id.cardRegistrarPropiedades);
+        cardVerPropiedades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vamos=new Intent(getApplicationContext(),propiedadesInmobiliaria.class);
+                startActivity(vamos);
             }
-            return true;
+        });
 
-            case R.id.perfil:{
-                Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
-                startActivity(inss);
+        cardPeril.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vamos1=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
+                startActivity(vamos1);
+                finish();
             }
-            return true;
+        });
 
-            case R.id.logout: {
+        cerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 Intent inss=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(inss);
             }
-            return true;
+        });
 
 
-        }
-        return super.onOptionsItemSelected(item);
+        cardRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vamo2=new Intent(getApplicationContext(),RegistroPropiedades.class);
+                startActivity(vamo2);
+                finish();
+
+            }
+        });
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+    }
 }

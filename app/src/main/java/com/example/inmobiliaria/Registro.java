@@ -69,17 +69,13 @@ public class Registro extends AppCompatActivity {
                     switchInmo.setText(R.string.inmo);
                     tituloUsuario.setText(R.string.regcli);
                     direccion.setVisibility(View.INVISIBLE);
-
-
                 } else {
                     tituloUsuario.setText(R.string.reg);
                     direccion.setVisibility(View.VISIBLE);
                     switchInmo.setText(R.string.cli);
-
                 }
             }
         });
-
     }
 
     @Override
@@ -95,23 +91,27 @@ public class Registro extends AppCompatActivity {
                 auxiliar = (Telefono.getText().toString());
                 dir = direccion.getText().toString();
 
-                if (auxiliar.equals("")) {
-                    auxiliar = "0";
-                }
+                if (auxiliar.equals("")) {auxiliar = "0"; }
+
                 int precio2 = Integer.parseInt(auxiliar);
 
                 if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && precio2 != 0) {
                     cellphone = precio2;
-                    RegistroFirebase();
+                        //Si direccioón es visible, se registra una inmobiliaria!
+                        if (direccion.getVisibility()==View.VISIBLE){
+                        ModeloInmobiliarias modIn=new ModeloInmobiliarias(name,dir,email,cellphone);
+                            RegistroInmobiliaria(modIn,password);
+                        }else{
+                            ModeloClientes cli = new ModeloClientes(name, email, cellphone);
+                            RegistroFirebase(cli,password);
+                        }
                 } else {
                     Toast.makeText(getApplicationContext(), "Debe Instertar los Datos que Faltan", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        //Inmobiliaria
-
-
+        //Nos Lleva al MainActivity a Iniciar Sesioón
         inicioSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,20 +132,20 @@ public class Registro extends AppCompatActivity {
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), task2.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
     }
 
 
-    private void Inmobiliaria(ModeloInmobiliarias inmobiliaria) {
-        myAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    private void RegistroInmobiliaria(ModeloInmobiliarias inmobilia, String clave) {
+
+        myAuth.createUserWithEmailAndPassword(inmobilia.getEmail(), clave).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     String id = myAuth.getCurrentUser().getUid();
-                    mDatabase.child("Inmobiliarias").child(id).setValue(inmobiliaria.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabase.child("Inmobiliarias").child(id).setValue(inmobilia.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
@@ -162,20 +162,18 @@ public class Registro extends AppCompatActivity {
         });
     }
 
-    private void RegistroFirebase() {
-        myAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    private void RegistroFirebase(ModeloClientes clix,String clave) {
+        myAuth.createUserWithEmailAndPassword(clix.getCorreo(), clave).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    if (switchInmo.isChecked()) {
-                        ModeloClientes cli = new ModeloClientes(name, email, cellphone);
-                        Cliente(cli);
-                    } else {
-                        ModeloInmobiliarias inmo = new ModeloInmobiliarias(name, dir, email, cellphone);
-                        Inmobiliaria(inmo);
-                    }
+                        Cliente(clix);
+                } else{
+                    Toast.makeText(getApplicationContext(), "Regisro Cliente No Exitoso", Toast.LENGTH_SHORT).show();
+                }
                 }
             }
-        });
+        );
     }
 }
+

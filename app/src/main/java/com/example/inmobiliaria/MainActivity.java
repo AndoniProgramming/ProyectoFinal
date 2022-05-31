@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 inta = new Intent(getApplicationContext(), Opciones.class);
                 //inmobiliarias
                 help = new Intent(getApplicationContext(), OpcionesInmobiliaria.class);
+
                 userID  = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                 database.child("Usuarios")
