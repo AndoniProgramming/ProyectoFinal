@@ -2,6 +2,7 @@ package com.example.inmobiliaria;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,19 +17,22 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Opciones extends AppCompatActivity {
 
-    private Button btnComprar;
-    private Button btnPropFavoritas;
+    private CardView btnComprar;
+    private CardView btnPropFavoritas;
     private Intent intent;
-    private Button btnPerfil;
+    private CardView btnPerfil;
+    private CardView cerrar;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opciones);
-        btnPropFavoritas= findViewById(R.id.btnPropFav);
-        btnComprar= findViewById(R.id.btnComprar);
-        btnPerfil=findViewById(R.id.btnPerfil);
+        setContentView(R.layout.prueba);
+        btnComprar= findViewById(R.id.cardVer);
+        btnPropFavoritas= findViewById(R.id.cardPropFavor);
+        btnPerfil=findViewById(R.id.cardPerfillll);
+        cerrar=findViewById(R.id.cardFuera);
     }
 
     @Override
@@ -39,6 +43,16 @@ public class Opciones extends AppCompatActivity {
             public void onClick(View v) {
                 intent = new Intent(getApplicationContext(),PropiedadesUsuarios.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent vamos1=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(vamos1);
                 finish();
             }
         });
@@ -60,37 +74,6 @@ public class Opciones extends AppCompatActivity {
             }
         });
 
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.Opciones:{
-                Toast.makeText(getApplicationContext(), "Ya estás en Opciones", Toast.LENGTH_SHORT).show();
-            }
-            return true;
-
-            case R.id.perfil:{
-                Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.logout: {
-                FirebaseAuth.getInstance().signOut();
-                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(inss);
-            }
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 }

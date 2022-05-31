@@ -21,7 +21,7 @@
         <entry key="app/src/main/res/layout/activity_contacto_inmobiliaria.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_inmuebles_filtros.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_opciones.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_opciones.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_opciones_inmobiliaria.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_perfil_inmobiliaria.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_perfil_usuario.xml" value="0.375" />
@@ -34,6 +34,7 @@
         <entry key="app/src/main/res/layout/activity_restablecer_contra.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_layout.xml" value="0.2566517616165295" />
         <entry key="app/src/main/res/layout/probando.xml" value="0.42316258351893093" />
+        <entry key="app/src/main/res/layout/prueba.xml" value="0.1" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.1703125" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

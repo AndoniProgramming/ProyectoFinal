@@ -50,10 +50,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inicia Sesión!"
+        android:text="InmoVando"
         android:layout_marginTop="50dp"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textColor="@color/white"
 
         app:layout_constraintEnd_toEndOf="parent"

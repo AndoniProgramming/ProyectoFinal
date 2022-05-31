@@ -56,7 +56,6 @@ public class ActuDatosInmobiliarias extends AppCompatActivity {
             imgPeril.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FirebaseAuth.getInstance().signOut();
                     Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
                     startActivity(inss);
                 }

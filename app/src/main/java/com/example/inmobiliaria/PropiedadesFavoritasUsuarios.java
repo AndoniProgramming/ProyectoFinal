@@ -12,6 +12,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +39,7 @@ public class PropiedadesFavoritasUsuarios extends AppCompatActivity{
     private FirebaseAuth myAuth;
     private Intent movimiento;
     private TextView txtSinFavoritos;
+    private ImageView imgPerfil;
 
 
     @Override
@@ -49,6 +52,7 @@ public class PropiedadesFavoritasUsuarios extends AppCompatActivity{
         databaseReference= FirebaseDatabase.getInstance().getReference();
         txtSinFavoritos=findViewById(R.id.txtSinProp);
         txtSinFavoritos.setVisibility(View.INVISIBLE);
+        imgPerfil=findViewById(R.id.imgPerfillll);
 
     }
 
@@ -56,6 +60,15 @@ public class PropiedadesFavoritasUsuarios extends AppCompatActivity{
         protected void onStart() {
             super.onStart();
             //Id del usuario/Cliente
+            imgPerfil.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent inss=new Intent(getApplicationContext(),PerfilUsuario.class);
+                    startActivity(inss);
+                }
+            });
+
+
             String idD = myAuth.getCurrentUser().getUid();
             databaseReference.child("Usuarios").child(idD).child("PropiedadesFavoritas").addValueEventListener(new ValueEventListener() {
                             @Override
