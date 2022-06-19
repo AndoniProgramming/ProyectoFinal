@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ActuDatosInmobiliarias extends AppCompatActivity {
 
-    private Button btnOpciones;
     private Button btnGuardar;
     private EditText edtNombre;
     private EditText edtTelefono;
@@ -33,13 +32,15 @@ public class ActuDatosInmobiliarias extends AppCompatActivity {
     private String aux="";
     private String direccion="";
     private int cellphone=0;
+
     private ImageView imgPeril;
+    private  ImageView imgmenuDatosInmo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actu_datos_inmobiliarias);
-        btnOpciones=findViewById(R.id.btnOpciones);
+        imgmenuDatosInmo=findViewById(R.id.menuDatosInmo);
         btnGuardar=findViewById(R.id.btnGuardar);
         edtNombre=findViewById(R.id.edtNombre);
         edtTelefono=findViewById(R.id.edtTelefono);
@@ -62,7 +63,7 @@ public class ActuDatosInmobiliarias extends AppCompatActivity {
             });
 
             String idD = myAuth.getCurrentUser().getUid();
-            btnOpciones.setOnClickListener(new View.OnClickListener() {
+            imgmenuDatosInmo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     intent = new Intent(getApplicationContext(), OpcionesInmobiliaria.class);

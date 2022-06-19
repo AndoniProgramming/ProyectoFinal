@@ -16,6 +16,17 @@
     <string name="haz_click_en_la_gota_para_volver">Haz Click En La Gota Para Iniciar Sesión!</string>
     <string name="perfil_inmobiliaria">Perfil Inmobiliaria</string>
     <string name="no_tienes_ninguna">No tienes Ninguna!</string>
+    <string name="nombre">Nombre</string>
+    <string name="registrar">Registrar</string>
+    <string name="direcci_n">Dirección</string>
+    <string name="tel_fono">Teléfono</string>
+    <string name="clave">Clave</string>
+    <string name="cnt">Tienes Cuenta? Haz click para iniciar sesión</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="actualizar_datos">Actualizar Datos</string>
+    <string name="descipci_n">Descipción</string>
+    <string name="precio">Precio</string>
+    <string name="registro_inmueble">Registro Inmueble</string>
     <string-array name="Habitaciones">
         <item>0-1</item>
         <item>2</item>

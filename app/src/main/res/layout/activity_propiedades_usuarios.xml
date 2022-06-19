@@ -7,12 +7,23 @@
     android:orientation="vertical"
     tools:context=".PropiedadesUsuarios">
 
-    <ProgressBar
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBaridnew"
-        android:layout_gravity="center"
-        />
+    >
+
+        <ImageView
+            android:id="@+id/menuUsu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="345dp"
+            android:src="@drawable/ic_baseline_menu_24"
+         />
+
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewid"

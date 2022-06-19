@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,7 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ActualziarDatosUsuario extends AppCompatActivity {
-    private Button btnOpciones;
+    private ImageView imgTablero;
+    private ImageView imgPerfil;
     private Button btnGuardar;
     private EditText edtNombre;
     private EditText edtTelefono;
@@ -27,16 +29,14 @@ public class ActualziarDatosUsuario extends AppCompatActivity {
     private FirebaseAuth myAuth;
     private Intent intent;
     private String name= "";
-    private String email="";
-    private String password = "";
-    private String direccion="";
     private int cellphone=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actualziar_datos_usuario);
-        btnOpciones=findViewById(R.id.btnOpciones1);
+        imgTablero=findViewById(R.id.menuUsuario);
+        imgPerfil=findViewById(R.id.perfilUsuario);
         btnGuardar=findViewById(R.id.btnGuardar1);
         edtNombre=findViewById(R.id.edtNombre1);
         edtTelefono=findViewById(R.id.edtTelefono1);
@@ -46,10 +46,17 @@ public class ActualziarDatosUsuario extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        String idD = myAuth.getCurrentUser().getUid();
-
         super.onStart();
-            btnOpciones.setOnClickListener(new View.OnClickListener() {
+        String idD = myAuth.getCurrentUser().getUid();
+        imgPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), PerfilUsuario.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        imgTablero.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     intent = new Intent(getApplicationContext(), Opciones.class);
@@ -57,17 +64,13 @@ public class ActualziarDatosUsuario extends AppCompatActivity {
                     finish();
                 }
             });
-
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ObjectAnimator vueltas = ObjectAnimator.ofFloat(v ,
-                        "rotation", 0f, 360f);
+                ObjectAnimator vueltas = ObjectAnimator.ofFloat(v , "rotation", 0f, 360f);
                 vueltas.setDuration(500); //
                 vueltas.start();
-
                 name= edtNombre.getText().toString();
-
                 if(!name.isEmpty() && !edtTelefono.getText().toString().trim().equals("")){
                     cellphone = Integer.parseInt(edtTelefono.getText().toString().trim());
                     ActualizarNombre(name);
@@ -97,5 +100,4 @@ public class ActualziarDatosUsuario extends AppCompatActivity {
             }
         });
     }
-
 }

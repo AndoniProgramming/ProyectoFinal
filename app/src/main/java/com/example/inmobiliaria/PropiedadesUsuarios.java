@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,14 +31,17 @@ public class PropiedadesUsuarios extends AppCompatActivity {
     DatabaseReference databaseReference;
     DatabaseReference databaseReference1;
     private Intent contactoInmobiliaria;
+    private Intent menu;
+
     FirebaseAuth myAuth;
-    private ProgressBar progressBar;
+    private ImageView imgMenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_propiedades_usuarios);
-        progressBar = findViewById(R.id.progressBaridnew);
+        imgMenu=findViewById(R.id.menuUsu);
         recyclerView = findViewById(R.id.RecyclerViewid);
         propiedadListaa = new ArrayList<>();
         myAuth = FirebaseAuth.getInstance();
@@ -108,7 +112,6 @@ public class PropiedadesUsuarios extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Propiedad Agregada a Favoritos", Toast.LENGTH_SHORT).show();
                     }
                 });
-                progressBar.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -116,39 +119,14 @@ public class PropiedadesUsuarios extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.Opciones:{
-                Intent inss=new Intent(getApplicationContext(),Opciones.class);
-                startActivity(inss);
+        imgMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            menu= new Intent(getApplicationContext(), Opciones.class);
+            startActivity(menu);
             }
-            return true;
-
-            case R.id.perfil:{
-                Intent inss=new Intent(getApplicationContext(),PerfilUsuario.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.logout: {
-                FirebaseAuth.getInstance().signOut();
-                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(inss);
-            }
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        });
     }
 
 }

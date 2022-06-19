@@ -34,7 +34,6 @@ import java.util.List;
 import java.util.Map;
 
 public class ActuDatosPropiedad extends AppCompatActivity  {
-    private Button btnPropInmo;
     private Button btnActProp;
     private EditText edtPrecio;
     private EditText edtDesc;
@@ -43,12 +42,11 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
     private String cat="";
     private Intent getData;
     private String auxiliar;
-    private Intent volver;
     DatabaseReference databaseReference;
     FirebaseAuth myAuth;
     private List<String> userIdLista;
     private ImageView imgPerfil;
-
+    private  ImageView imgMenuProp;
 
 
 
@@ -56,7 +54,6 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actu_datos_propiedad);
-        btnPropInmo=findViewById(R.id.btnPropInmo);
         btnActProp=findViewById(R.id.btnActualizarPropiedad);
         edtPrecio=findViewById(R.id.edtPrecio);
         edtDesc=findViewById(R.id.edtDescripcion);
@@ -65,7 +62,7 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
         databaseReference= FirebaseDatabase.getInstance().getReference();
         userIdLista=new ArrayList<>();
         imgPerfil=findViewById(R.id.imgCerrarSesion);
-
+        imgMenuProp=findViewById(R.id.menuPropInmo);
     }
 
     @Override
@@ -95,14 +92,12 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
             }
         });
 
-
         //idDInmobiliaria
         String idD = myAuth.getCurrentUser().getUid();
 
         //Objeto Actualizar
         getData=getIntent();
         ModeloPropiedad prop=(ModeloPropiedad) getData.getSerializableExtra("PropiedadEditar");
-
         databaseReference.child("Usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -112,7 +107,6 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
                 {
                     //Id de todos los usuarios
                     String userId=dataSnapshot1.getKey();
-
                     databaseReference.child("Usuarios").child(userId).child("PropiedadesFavoritas").child(prop.getKey()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -120,7 +114,6 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                     });
                 }}
@@ -132,7 +125,7 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
             }
         });
 
-        btnPropInmo.setOnClickListener(new View.OnClickListener() {
+        imgMenuProp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent vuelta=new Intent(getApplicationContext(),OpcionesInmobiliaria.class);
@@ -202,39 +195,5 @@ public class ActuDatosPropiedad extends AppCompatActivity  {
            }
        });
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.Opciones:{
-                Intent inss=new Intent(getApplicationContext(),OpcionesInmobiliaria.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.perfil:{
-                Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.logout: {
-                FirebaseAuth.getInstance().signOut();
-                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(inss);
-            }
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 }
 

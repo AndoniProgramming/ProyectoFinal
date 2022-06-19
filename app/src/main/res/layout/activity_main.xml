@@ -126,8 +126,8 @@
 
     <Button
         android:id="@+id/Log_In"
-        android:layout_width="292dp"
-        android:layout_height="52dp"
+        android:layout_width="273dp"
+        android:layout_height="50dp"
         android:layout_marginTop="84dp"
         android:background="@drawable/botoncolor"
         android:text="Inicio Sesion"
