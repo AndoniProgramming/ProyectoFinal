@@ -32,7 +32,6 @@ public class PropiedadesUsuarios extends AppCompatActivity {
     DatabaseReference databaseReference1;
     private Intent contactoInmobiliaria;
     private Intent menu;
-
     FirebaseAuth myAuth;
     private ImageView imgMenu;
 

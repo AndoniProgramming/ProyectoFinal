@@ -47,7 +47,7 @@
     <Button
         android:id="@+id/btnBorrar7"
         android:layout_width="229dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="68dp"
         android:backgroundTint="@color/white"
         android:text="Eliminar Cuenta"

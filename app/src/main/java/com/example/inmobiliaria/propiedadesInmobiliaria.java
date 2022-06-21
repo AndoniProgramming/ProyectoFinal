@@ -38,9 +38,7 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
     private FirebaseStorage firebaseStorage;
     private Intent editIntent;
     private TextView txtSinFavoritos;
-    private ImageView imgPerfil;
-
-
+    private ImageView imgMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,40 +51,33 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
         databaseReference= FirebaseDatabase.getInstance().getReference();
         txtSinFavoritos=findViewById(R.id.txtSinProppp);
         txtSinFavoritos.setVisibility(View.INVISIBLE);
-        imgPerfil=findViewById(R.id.imgPerfilll);
-
+        imgMenu=findViewById(R.id.menuupropp);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        imgPerfil.setOnClickListener(new View.OnClickListener() {
+        imgMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
+                Intent inss=new Intent(getApplicationContext(),OpcionesInmobiliaria.class);
                 startActivity(inss);
             }
         });
 
         String idD = myAuth.getCurrentUser().getUid();
-
         databaseReference.child("Inmobiliarias").child(idD).child("Propiedades").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 propiedadList.clear();
                 if(snapshot.hasChildren()){
-
                     for(DataSnapshot dataSnapshot1:snapshot.getChildren()) {
                         ModeloPropiedad modelo = dataSnapshot1.getValue(ModeloPropiedad.class);
                         modelo.setKey(dataSnapshot1.getKey());
-
                         propiedadList.add(modelo);
                     }
                 } else{
-
                         txtSinFavoritos.setVisibility(View.VISIBLE);
-
                     }
                 myAdapter=new MyAdapter(propiedadesInmobiliaria.this,propiedadList);
                 recyclerView.setHasFixedSize(true);
@@ -116,7 +107,6 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
                                 databaseReference.child("Usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                                         for(DataSnapshot dataSnapshot1:snapshot.getChildren())
                                         {
                                             String userId=dataSnapshot1.getKey();
@@ -126,7 +116,6 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
                                         Toast.makeText(getApplicationContext(), "HabemusFracasoBorrando Usuarios", Toast.LENGTH_SHORT).show();
-
                                     }
                                 });
                             }
@@ -142,7 +131,6 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
                         editIntent.putExtra("PropKey", key);
                         startActivity(editIntent);
                         finish();
-
                     }
                 });
             }
@@ -153,38 +141,4 @@ public class propiedadesInmobiliaria extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.Opciones:{
-                Intent inss=new Intent(getApplicationContext(),OpcionesInmobiliaria.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.perfil:{
-                Intent inss=new Intent(getApplicationContext(),PerfilInmobiliaria.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.logout: {
-                FirebaseAuth.getInstance().signOut();
-                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(inss);
-            }
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 }

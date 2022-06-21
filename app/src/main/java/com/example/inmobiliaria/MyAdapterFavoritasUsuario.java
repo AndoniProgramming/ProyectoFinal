@@ -56,7 +56,6 @@ public class MyAdapterFavoritasUsuario extends RecyclerView.Adapter<MyAdapterFav
         holder.txtDescripcion.setText(modelo.getDescripcion());
         holder.txtTipo.setText(modelo.getTipo());
         holder.txtPrecio.setText(String.valueOf(modelo.getPrecio()));
-
     }
 
 
@@ -93,7 +92,6 @@ public class MyAdapterFavoritasUsuario extends RecyclerView.Adapter<MyAdapterFav
             txtTamaño=itemView.findViewById(R.id.CardTamañoViewid);
             txtTipo=itemView.findViewById(R.id.CardTipoViewid);
             txtPrecio=itemView.findViewById(R.id.CardPrecioViewid);
-
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
         }

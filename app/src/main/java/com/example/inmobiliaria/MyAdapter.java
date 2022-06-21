@@ -58,7 +58,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.txtCategoria.setText(modelo.getCategoria());
         holder.txtDescripcion.setText(modelo.getDescripcion());
 
-
     }
 
     @Override
@@ -112,7 +111,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             menu.setHeaderTitle("Escoge Opcion");
             MenuItem borrar=menu.add(Menu.NONE,1,1,"BorrarPropiedad");
             MenuItem editar=menu.add(Menu.NONE,2,2,"EditarPropiedad");
-
             borrar.setOnMenuItemClickListener(this);
             editar.setOnMenuItemClickListener(this);
         }
@@ -145,7 +143,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void setOnItemClickListener(OnItemClickListener listener){
         this.listener=listener;
     }
-
 }
 
 

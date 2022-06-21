@@ -137,7 +137,6 @@ public class PerfilInmobiliaria extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String gg = myAuth.getCurrentUser().getUid();
-
                 user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -149,11 +148,11 @@ public class PerfilInmobiliaria extends AppCompatActivity {
                                     for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
                                         String userId = dataSnapshot1.getKey();
                                         for(int i=0;i<Lista.size();i++) {
-                                            databaseReference.child("Usuarios").child(userId).child("PropiedadesFavoritas").child(Lista.get(i)).removeValue();
+                                            databaseReference.child("Usuarios").child(userId).child("PropiedadesFavoritas").
+                                                    child(Lista.get(i)).removeValue();
                                         }
                                     }
                                 }
-
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
                                     Toast.makeText(getApplicationContext(), "Errorr"+error.getMessage(), Toast.LENGTH_SHORT).show();

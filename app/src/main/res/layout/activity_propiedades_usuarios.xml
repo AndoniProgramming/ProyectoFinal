@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginStart="345dp"
-            android:src="@drawable/ic_baseline_menu_24"
+            android:src="@drawable/menumorado"
          />
 
 

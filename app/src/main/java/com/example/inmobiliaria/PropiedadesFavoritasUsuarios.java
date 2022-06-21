@@ -39,7 +39,7 @@ public class PropiedadesFavoritasUsuarios extends AppCompatActivity{
     private FirebaseAuth myAuth;
     private Intent movimiento;
     private TextView txtSinFavoritos;
-    private ImageView imgPerfil;
+    private ImageView imgMenu;
 
 
     @Override
@@ -52,7 +52,7 @@ public class PropiedadesFavoritasUsuarios extends AppCompatActivity{
         databaseReference= FirebaseDatabase.getInstance().getReference();
         txtSinFavoritos=findViewById(R.id.txtSinProp);
         txtSinFavoritos.setVisibility(View.INVISIBLE);
-        imgPerfil=findViewById(R.id.imgPerfillll);
+        imgMenu=findViewById(R.id.menuFavUsu);
 
     }
 
@@ -60,10 +60,10 @@ public class PropiedadesFavoritasUsuarios extends AppCompatActivity{
         protected void onStart() {
             super.onStart();
             //Id del usuario/Cliente
-            imgPerfil.setOnClickListener(new View.OnClickListener() {
+            imgMenu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent inss=new Intent(getApplicationContext(),PerfilUsuario.class);
+                    Intent inss=new Intent(getApplicationContext(),Opciones.class);
                     startActivity(inss);
                 }
             });

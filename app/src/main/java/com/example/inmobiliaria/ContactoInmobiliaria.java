@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,10 +26,8 @@ public class ContactoInmobiliaria extends AppCompatActivity {
     private TextView Email;
     private TextView Nombre;
     private TextView Telefono;
-
-    private Button volver;
     private DatabaseReference databaseReference;
-    private FirebaseAuth myAuth;
+    private ImageView imgmenu;
     private Intent intent;
     private String aix = "";
 
@@ -41,23 +40,19 @@ public class ContactoInmobiliaria extends AppCompatActivity {
         Email = findViewById(R.id.txtEmail111);
         Nombre = findViewById(R.id.txtNombre111);
         Telefono = findViewById(R.id.TelefonoInmo);
-        volver = findViewById(R.id.btnMenu123);
-
-        myAuth = FirebaseAuth.getInstance();
+        imgmenu = findViewById(R.id.menuUsuCasa);
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        volver.setOnClickListener(new View.OnClickListener() {
+        imgmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(getApplicationContext(), Opciones.class);
                 startActivity(intent);
                 finish();
-
             }
         });
 
@@ -70,7 +65,6 @@ public class ContactoInmobiliaria extends AppCompatActivity {
                     aix = inmo;
                     //LLave del valor selecionado en el Propiedades Usuario onContacto
                     String valor = getIntent().getExtras().getString("idPropiedad");
-
                     databaseReference.child("Inmobiliarias").child(inmo).child("Propiedades").child(valor).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshott) {
@@ -91,16 +85,13 @@ public class ContactoInmobiliaria extends AppCompatActivity {
                                     }
                                 });
                             }}
-
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
 
                                     }
                                 });
                             }
-
-                }
-
+                         }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -108,39 +99,5 @@ public class ContactoInmobiliaria extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.Opciones:{
-                Intent inss=new Intent(getApplicationContext(),Opciones.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.perfil:{
-                Intent inss=new Intent(getApplicationContext(),PerfilUsuario.class);
-                startActivity(inss);
-            }
-            return true;
-
-            case R.id.logout: {
-                FirebaseAuth.getInstance().signOut();
-                Intent inss=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(inss);
-            }
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 }
 

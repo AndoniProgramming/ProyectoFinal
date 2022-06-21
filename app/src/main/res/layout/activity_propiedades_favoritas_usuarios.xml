@@ -6,15 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".PropiedadesFavoritasUsuarios">
-    <ImageView
-        android:id="@+id/imgPerfillll"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_person"
-        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/menuFavUsu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="345dp"
+            android:src="@drawable/menumorado"
+            />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"

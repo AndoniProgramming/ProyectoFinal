@@ -32,7 +32,6 @@ public class MyAdapterUsuarioPropiedades extends RecyclerView.Adapter<MyAdapterU
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
         View view= layoutInflater.inflate(R.layout.item_layout,parent,false);
         return new MyViewHolder(view);
@@ -40,7 +39,6 @@ public class MyAdapterUsuarioPropiedades extends RecyclerView.Adapter<MyAdapterU
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
         ModeloPropiedad modelo=propiedadList.get(position);
         holder.txtBaños.setText(String.valueOf(modelo.getBaños()));
         holder.txtCodigo.setText(String.valueOf(modelo.getCodigoPostal()));
@@ -57,7 +55,6 @@ public class MyAdapterUsuarioPropiedades extends RecyclerView.Adapter<MyAdapterU
         holder.txtDescripcion.setText(modelo.getDescripcion());
         holder.txtTipo.setText(modelo.getTipo());
         holder.txtPrecio.setText(String.valueOf(modelo.getPrecio()));
-
     }
 
     @Override
@@ -78,8 +75,6 @@ public class MyAdapterUsuarioPropiedades extends RecyclerView.Adapter<MyAdapterU
         TextView txtTipo;
         TextView txtPrecio;
 
-
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtBaños= itemView.findViewById(R.id.CardBañosViewid);
@@ -93,7 +88,6 @@ public class MyAdapterUsuarioPropiedades extends RecyclerView.Adapter<MyAdapterU
             txtTamaño=itemView.findViewById(R.id.CardTamañoViewid);
             txtTipo=itemView.findViewById(R.id.CardTipoViewid);
             txtPrecio=itemView.findViewById(R.id.CardPrecioViewid);
-
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
         }
@@ -113,7 +107,6 @@ public class MyAdapterUsuarioPropiedades extends RecyclerView.Adapter<MyAdapterU
             menu.setHeaderTitle("Escoge Opcion");
             MenuItem Contacto=menu.add(Menu.NONE,2,2,"Contactar Inmobiliaria");
             MenuItem Favorito=menu.add(Menu.NONE,1,1,"Agregar a Favorito");
-
             Contacto.setOnMenuItemClickListener(this);
             Favorito.setOnMenuItemClickListener(this);
 
@@ -142,7 +135,6 @@ public class MyAdapterUsuarioPropiedades extends RecyclerView.Adapter<MyAdapterU
         void onItemClick(int position);
         void onContacto(int position);
         void onFavorito(int position);
-
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){

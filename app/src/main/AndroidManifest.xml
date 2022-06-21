@@ -40,9 +40,6 @@
             android:name=".PropiedadesUsuarios"
             android:exported="true" />
         <activity
-            android:name=".InmueblesFiltros"
-            android:exported="true" />
-        <activity
             android:name=".propiedadesInmobiliaria"
             android:exported="true" />
         <activity
